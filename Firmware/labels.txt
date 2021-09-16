@@ -1,0 +1,5 @@
+cracks-breaks-collapses
+displace
+normal
+obstacle
+root

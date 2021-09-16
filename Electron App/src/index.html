@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TinySewer</title>
+    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <!-- Boxicons CDN Link -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="slider.css" />
+
+    <script defer src="render.js"></script>
+  </head>
+
+  <body class="content">
+
+    <div id="sidebar" class="sidebar">
+      <div class="logo-details">
+        <i class='bx bxl-c-plus-plus icon'></i>
+          <div class="logo_name">CodingLab</div>
+          <i class='bx bx-menu' id="btn" ></i>
+      </div>
+      <ul class="nav-list">
+    
+        <li>
+          <a href="index.html">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+           <span class="tooltip">Dashboard</span>
+        </li>
+        
+       <li>
+         <a href="analysis.html">
+           <i class='bx bx-pie-chart-alt-2' ></i>
+           <span class="links_name">Analytics</span>
+         </a>
+         <span class="tooltip">Analytics</span>
+       </li>
+       <li>
+         <a href="#">
+           <i class='bx bx-folder' ></i>
+           <span class="links_name">File Manager</span>
+         </a>
+         <span class="tooltip">Files</span>
+       </li>
+   
+
+      </ul>
+    </div>
+   
+
+    <section id="home-section" class="home-section">
+      <div id="overlay">
+        <img  id="camera"  src="http://192.168.1.139:8080/" ></img >
+      </div>
+      <div id=label>None</div>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      </div>
+      <div class="lightValue" id="lightValue"></div>
+      <a href="#">
+      <div class="sensor-sleep" id="sensor-sleep">Sleep</div>
+      </a>
+      <a href="#">
+      <div class="sensor-start" id="sensor-start">Wake</div>
+      </a>
+
+      <button id="videoSelectBtn" class="button is-text">
+        Choose a Video Source
+      </button>
+ 
+
+
+      <button id="stopBtn" class="button is-warning">Stop</button>
+     
+
+   
+    </section>
+    
+  
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
+      let searchBtn = document.querySelector(".bx-search");
+    
+      closeBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("open");
+        menuBtnChange();//calling the function(optional)
+      });
+    
+  
+    
+      // following are the code to change sidebar button(optional)
+      function menuBtnChange() {
+       if(sidebar.classList.contains("open")){
+         closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+       }else {
+         closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+       }
+      }
+      </script>
+  </body>
+</html>

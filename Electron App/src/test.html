@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Screen Recorder</title>
+    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="render.js"></script>
+  </head>
+
+  <body class="content">
+
+ 
+
+      <div id="overlay">
+        <video id="camera"  controls poster="http://192.168.1.138:8080/" autoplay>
+          
+        </video>
+      </div>
+  
+      <button id="startBtn" class="button is-primary">Start</button>
+      <button id="stopBtn" class="button is-warning">Stop</button>
+      <button id="testBtn" class="button is-primary">Start</button>
+
+      <hr />
+      <button id="videoSelectBtn" class="button is-text">
+        Choose a Video Source
+      </button>
+    
+  
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
+      let searchBtn = document.querySelector(".bx-search");
+    
+      closeBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("open");
+        menuBtnChange();//calling the function(optional)
+      });
+    
+  
+    
+      // following are the code to change sidebar button(optional)
+      function menuBtnChange() {
+       if(sidebar.classList.contains("open")){
+         closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+       }else {
+         closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+       }
+      }
+      </script>
+  </body>
+</html>
