@@ -59,7 +59,6 @@ labels = [line.rstrip('\n') for line in open("labels.txt")]
 payload = MQTTClient("openmv", "broker.hivemq.com", port=1883)
 payload.connect()
 
-
 def callback(topic, msg):
     msg=msg.decode('utf-8')
     msg=msg.split("'")
@@ -102,7 +101,7 @@ def start_streaming(s):
                  "Content-Length:"+str(cframe.size())+"\r\n\r\n"
         client.sendall(header)
         client.sendall(cframe)
-        #client.sendall(bytes('POST /%s HTTP/1.0\r\nHost: 127.0.0.1:9990\r\n\r\n' % (predict), 'utf8'))
+        #client.sendall(bytes('POST /%s HTTP/1.0\r\nHost: 127.0.0.1:9990\r\n\r\n' % (predict), 'utf8')
         payload.publish("openmv/test", str(predict))
         payload.check_msg() # poll for messages.
 
